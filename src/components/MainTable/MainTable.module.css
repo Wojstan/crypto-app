@@ -1,0 +1,10 @@
+.tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+}
+
+.button {
+  margin: 0rem 0.4rem !important;
+}

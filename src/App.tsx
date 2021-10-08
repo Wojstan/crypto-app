@@ -22,11 +22,11 @@ const App = () => {
           position: "fixed",
           left: 0,
         }}
-        width="20rem"
+        width="18rem"
       >
         <Menu />
       </Sider>
-      <Layout className="site-layout" style={{ marginLeft: "20rem" }}>
+      <Layout className="site-layout" style={{ marginLeft: "18rem" }}>
         <Header>
           <Currency />
           <Button type="primary">
@@ -38,7 +38,7 @@ const App = () => {
         </Content>
         <Footer>
           <Title level={5} style={{ textAlign: "center" }}>
-            Copyright © 2021 <Link to="/">CryptoCurrencies</Link>
+            Copyright © 2021 <Link to="/">CryptoHouse</Link>
           </Title>
         </Footer>
       </Layout>

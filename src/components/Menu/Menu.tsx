@@ -17,7 +17,7 @@ const MyMenu = () => {
     <>
       <div className={styles.brand}>
         <Title level={2} type="secondary">
-          <span className={styles.blue}>Crypto</span>Currencies
+          <span className={styles.blue}>Crypto</span>House
         </Title>
       </div>
       <Menu

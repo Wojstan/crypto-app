@@ -10,7 +10,7 @@ import MainTable from "../../components/MainTable/MainTable";
 const { Title } = Typography;
 
 const Home = () => {
-  const { data, isFetching } = useGetGlobalStatsQuery(10);
+  const { data, isFetching } = useGetGlobalStatsQuery(0);
 
   const statData = data?.data;
 
@@ -58,9 +58,7 @@ const Home = () => {
         </Row>
       </div>
       <div className={styles.main}>
-        <Title level={2} type="secondary">
-          Most popular cryptos
-        </Title>
+        <Title level={2}>Most popular cryptos</Title>
         <MainTable />
       </div>
     </>

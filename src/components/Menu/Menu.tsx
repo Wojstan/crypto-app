@@ -23,7 +23,7 @@ const MyMenu = () => {
       <Menu
         defaultSelectedKeys={["1"]}
         mode="inline"
-        style={{ height: "94vh", minWidth: "18rem" }}
+        style={{ height: "94vh" }}
       >
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link to="/">Home</Link>

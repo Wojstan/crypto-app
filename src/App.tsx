@@ -1,21 +1,46 @@
-import { Layout } from "antd";
+import { Layout, Button, Typography } from "antd";
+import Currency from "./components/Currency/Currency";
 import Menu from "./components/Menu/Menu";
 
+import { ReloadOutlined } from "@ant-design/icons";
+
 import Home from "./views/Home/Home";
+
+import { Link } from "react-router-dom";
+
+const { Title } = Typography;
 
 const App = () => {
   const { Header, Footer, Sider, Content } = Layout;
 
   return (
     <Layout>
-      <Sider width="18rem">
+      <Sider
+        style={{
+          overflow: "auto",
+          height: "100vh",
+          position: "fixed",
+          left: 0,
+        }}
+        width="20rem"
+      >
         <Menu />
       </Sider>
-      <Layout>
-        <Header></Header>
+      <Layout className="site-layout" style={{ marginLeft: "20rem" }}>
+        <Header>
+          <Currency />
+          <Button type="primary">
+            Refresh data <ReloadOutlined />
+          </Button>
+        </Header>
         <Content>
           <Home />
         </Content>
+        <Footer>
+          <Title level={5} style={{ textAlign: "center" }}>
+            Copyright © 2021 <Link to="/">CryptoCurrencies</Link>
+          </Title>
+        </Footer>
       </Layout>
     </Layout>
   );

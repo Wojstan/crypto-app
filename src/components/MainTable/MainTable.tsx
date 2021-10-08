@@ -6,96 +6,55 @@ import {
   MoreOutlined,
   RedoOutlined,
 } from "@ant-design/icons";
-import { Table, Input, Button, Divider, Tag, Space } from "antd";
+import { Table, Input, Button, Divider } from "antd";
+import millify from "millify";
+import { useEffect, useState } from "react";
 import { useGetAllCoinsQuery } from "../../services/cryptoAPI";
 
 import styles from "./MainTable.module.css";
 
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    render: (text: string) => <a href="#">{text}</a>,
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (tags: any) => (
-      <>
-        {tags.map((tag: any) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: (text: string, record: any) => (
-      <Space size="middle">
-        <a href="#">Invite {record.name}</a>
-        <a href="#">Delete</a>
-      </Space>
-    ),
-  },
-];
-
-const tableData = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool"],
-  },
-];
+import { columns } from "./tableColumns";
 
 const MainTable = () => {
   const { data, isFetching } = useGetAllCoinsQuery(10);
 
-  console.log(data);
+  const [cryptoTableData, setCryptoTableData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const onChange = (e: { target: HTMLInputElement }) => {
+    setSearchQuery(e.target?.value);
+  };
+
+  useEffect(() => {
+    if (!isFetching) {
+      const coins = data?.data?.coins;
+
+      console.log(coins);
+
+      const cryptoTable = coins.map((row: any, i: number) => ({
+        position: i + 1,
+        short: { text: row.symbol, color: row.color },
+        name: row.name,
+        image: row.iconUrl,
+        price: millify(row.price),
+        daily: row.change,
+        type: row.type,
+      }));
+
+      setCryptoTableData(cryptoTable);
+    }
+  }, [data, isFetching]);
+
   return (
-    <>
+    <div className={styles.block}>
       <div className={styles.tools}>
         <Input
+          value={searchQuery}
           size="large"
           placeholder="Search..."
           prefix={<SearchOutlined />}
           style={{ maxWidth: "20rem" }}
+          onChange={onChange}
         />
         <div>
           <Button className={styles.button} size="large">
@@ -120,8 +79,13 @@ const MainTable = () => {
         </div>
       </div>
 
-      <Table columns={columns} dataSource={tableData} />
-    </>
+      <Table
+        columns={columns}
+        dataSource={cryptoTableData.filter((row: any) =>
+          row.name.toLowerCase().includes(searchQuery.toLowerCase())
+        )}
+      />
+    </div>
   );
 };
 

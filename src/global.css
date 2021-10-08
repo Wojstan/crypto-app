@@ -1,0 +1,14 @@
+.ant-layout-header {
+  background-color: white !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ant-layout {
+  background-color: #eeeeee !important;
+}
+
+.ant-card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}

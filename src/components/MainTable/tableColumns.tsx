@@ -5,6 +5,7 @@ import {
   ArrowDownOutlined,
   ArrowUpOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const { Text } = Typography;
 
@@ -74,10 +75,12 @@ export const columns = [
     title: "Action",
     dataIndex: "action",
     key: "action",
-    render: (text: string) => (
-      <Button type="primary">
-        More <RightOutlined />
-      </Button>
+    render: (id: number) => (
+      <Link to={`/currency/${id}`}>
+        <Button type="primary">
+          More <RightOutlined />
+        </Button>
+      </Link>
     ),
     width: "10%",
   },

@@ -37,6 +37,7 @@ const MainTable = () => {
         price: millify(row.price),
         daily: row.change,
         type: row.type,
+        action: row.id,
       }));
 
       setCryptoTableData(cryptoTable);

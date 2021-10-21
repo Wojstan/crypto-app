@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 2rem 5rem;
+}
+
+.header img {
+  margin-right: 1.5rem;
+}
+
+.main {
+  padding: 1rem 5rem;
+}
+
+.card {
+  padding: 5rem;
+}

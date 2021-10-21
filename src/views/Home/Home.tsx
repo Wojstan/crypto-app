@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      <div className={styles.header}>
+      <header className={styles.header}>
         <Title>Global Statistics</Title>
         <Row gutter={16}>
           {isFetching ? (
@@ -64,7 +64,7 @@ const Home = () => {
             </>
           )}
         </Row>
-      </div>
+      </header>
       <div className={styles.main}>
         <Title level={2}>Most popular cryptos</Title>
         <MainTable />

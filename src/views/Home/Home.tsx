@@ -7,6 +7,14 @@ import styles from "./Home.module.css";
 import millify from "millify";
 import MainTable from "../../components/MainTable/MainTable";
 
+import {
+  WalletOutlined,
+  MoneyCollectOutlined,
+  DollarCircleOutlined,
+  UserSwitchOutlined,
+  TransactionOutlined,
+} from "@ant-design/icons";
+
 const { Title } = Typography;
 
 const Home = () => {
@@ -16,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      <div className={styles.header}>
+      <header className={styles.header}>
         <Title>Global Statistics</Title>
         <Row gutter={16}>
           {isFetching ? (
@@ -24,39 +32,39 @@ const Home = () => {
           ) : (
             <>
               <GlobalStat
+                icon={<MoneyCollectOutlined />}
                 value={millify(statData.total24hVolume)}
                 title="Total 24h Volume"
-                rise
               />
               <GlobalStat
-                value={statData.totalCoins}
+                value={millify(statData.totalCoins)}
                 title="Total Coins"
-                rise={false}
+                icon={<WalletOutlined />}
               />
               <GlobalStat
                 value={statData.totalExchanges}
                 title="Total Exchanges"
-                rise
+                icon={<UserSwitchOutlined />}
               />
               <GlobalStat
                 value={millify(statData.totalMarketCap)}
                 title="Total Market Cap"
-                rise
+                icon={<DollarCircleOutlined />}
               />
               <GlobalStat
                 value={millify(statData.totalMarkets)}
                 title="Total Markets"
-                rise={false}
+                icon={<TransactionOutlined />}
               />
               <GlobalStat
-                value={statData.totalCoins}
+                value={millify(statData.totalCoins)}
                 title="Total Coins"
-                rise
+                icon={<WalletOutlined />}
               />
             </>
           )}
         </Row>
-      </div>
+      </header>
       <div className={styles.main}>
         <Title level={2}>Most popular cryptos</Title>
         <MainTable />

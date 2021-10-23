@@ -16,7 +16,7 @@ import styles from "./MainTable.module.css";
 import { columns } from "./tableColumns";
 
 const MainTable = () => {
-  const { data, isFetching } = useGetAllCoinsQuery(10);
+  const { data, isFetching } = useGetAllCoinsQuery(0);
 
   const [cryptoTableData, setCryptoTableData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -29,8 +29,6 @@ const MainTable = () => {
     if (!isFetching) {
       const coins = data?.data?.coins;
 
-      console.log(coins);
-
       const cryptoTable = coins.map((row: any, i: number) => ({
         position: i + 1,
         short: { text: row.symbol, color: row.color },
@@ -39,6 +37,7 @@ const MainTable = () => {
         price: millify(row.price),
         daily: row.change,
         type: row.type,
+        action: row.id,
       }));
 
       setCryptoTableData(cryptoTable);

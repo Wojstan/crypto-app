@@ -1,10 +1,5 @@
 import { Menu, Typography } from "antd";
-import {
-  MoneyCollectOutlined,
-  HomeOutlined,
-  BulbOutlined,
-  FundOutlined,
-} from "@ant-design/icons";
+import { MoneyCollectOutlined, HomeOutlined } from "@ant-design/icons";
 
 import { Link } from "react-router-dom";
 

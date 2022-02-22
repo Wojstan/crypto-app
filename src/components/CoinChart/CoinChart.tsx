@@ -15,11 +15,13 @@ const CoinChart = ({ color, coinHistory }: Props) => {
   }
 
   const chartData = {
-    labels: coinData.map((row) => new Date(row.timestamp).toLocaleDateString()),
+    labels: [...coinData]
+      .reverse()
+      .map((row) => new Date(row.timestamp * 1000).toLocaleDateString()),
     datasets: [
       {
         label: "USD Price",
-        data: coinData.map((row) => row.price),
+        data: [...coinData].reverse().map((row) => row.price),
         fill: false,
         backgroundColor: color,
         borderColor: color,

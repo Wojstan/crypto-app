@@ -7,6 +7,7 @@ import { SyncOutlined } from "@ant-design/icons";
 
 import Home from "./views/Home/Home";
 import CurrencyDetail from "./views/CurrencyDetail/CurrencyDetail";
+import Exchange from "./views/Exchange/Exchange";
 
 const { Title } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
@@ -38,6 +39,9 @@ const App = () => (
           </Route>
           <Route exact path="/currency/:coinId">
             <CurrencyDetail />
+          </Route>
+          <Route exact path="/exchanges">
+            <Exchange />
           </Route>
         </Switch>
       </Content>

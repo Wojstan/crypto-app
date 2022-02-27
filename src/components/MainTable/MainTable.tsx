@@ -16,7 +16,7 @@ import styles from "./MainTable.module.css";
 import { columns } from "./tableColumns";
 
 const MainTable = () => {
-  const { data, isFetching } = useGetAllCoinsQuery(0);
+  const { data, isFetching, refetch } = useGetAllCoinsQuery(0);
 
   const [cryptoTableData, setCryptoTableData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,14 +30,15 @@ const MainTable = () => {
       const coins = data?.data?.coins;
 
       const cryptoTable = coins.map((row: any, i: number) => ({
+        key: i,
         position: i + 1,
         short: { text: row.symbol, color: row.color },
         name: row.name,
         image: row.iconUrl,
         price: millify(row.price),
         daily: row.change,
-        type: row.type,
-        action: row.id,
+        tier: row.tier,
+        action: row.uuid,
       }));
 
       setCryptoTableData(cryptoTable);
@@ -69,7 +70,7 @@ const MainTable = () => {
             Print
           </Button>
           <Divider style={{ height: "1.9em" }} type="vertical" />
-          <Button className={styles.button} size="large">
+          <Button className={styles.button} size="large" onClick={refetch}>
             <RedoOutlined />
           </Button>
           <Button className={styles.button} size="large">

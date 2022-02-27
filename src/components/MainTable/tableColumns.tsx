@@ -61,9 +61,9 @@ export const columns = [
     width: "15%",
   },
   {
-    title: "Type",
-    dataIndex: "type",
-    key: "type",
+    title: "Tier",
+    dataIndex: "tier",
+    key: "tier",
     render: (text: string) => (
       <Tag color="blue" key={text}>
         {text}
@@ -75,8 +75,8 @@ export const columns = [
     title: "Action",
     dataIndex: "action",
     key: "action",
-    render: (id: number) => (
-      <Link to={`/currency/${id}`}>
+    render: (uuid: string) => (
+      <Link to={`/currency/${uuid}`}>
         <Button type="primary">
           More <RightOutlined />
         </Button>

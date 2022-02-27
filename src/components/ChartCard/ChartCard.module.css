@@ -1,0 +1,13 @@
+.cardheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart {
+  padding: 1rem;
+}
+
+.label {
+  display: block;
+}

@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      <header className={styles.header}>
+      <header>
         <Title>Global Statistics</Title>
         <Row gutter={16}>
           {isFetching ? (

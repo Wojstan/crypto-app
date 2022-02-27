@@ -32,6 +32,15 @@ export const cryptoApi = createApi({
           timePeriod: args.timeframe,
         }),
     }),
+    getExchangeMarkets: builder.query({
+      query: (coinId: string) =>
+        createRequest(`/coin/${coinId}/exchanges`, {
+          limit: "20",
+          offset: "0",
+          orderBy: "24hVolume",
+          orderDirection: "desc",
+        }),
+    }),
   }),
 });
 
@@ -40,4 +49,5 @@ export const {
   useGetAllCoinsQuery,
   useGetCurrencyDetailsQuery,
   useGetCoinHistoryQuery,
+  useGetExchangeMarketsQuery,
 } = cryptoApi;

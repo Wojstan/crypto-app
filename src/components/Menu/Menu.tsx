@@ -12,14 +12,10 @@ const MyMenu = () => {
     <>
       <div className={styles.brand}>
         <Title level={2} type="secondary">
-          <span className={styles.blue}>Crypto</span>House
+          <span className="blue">Crypto</span>House
         </Title>
       </div>
-      <Menu
-        defaultSelectedKeys={["1"]}
-        mode="inline"
-        style={{ height: "94vh" }}
-      >
+      <Menu defaultSelectedKeys={["1"]} mode="inline">
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link to="/">Home</Link>
         </Menu.Item>

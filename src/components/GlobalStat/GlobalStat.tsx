@@ -7,7 +7,7 @@ type Props = {
 };
 
 const GlobalStat = ({ value, title, icon }: Props) => (
-  <Col xxl={4} xl={8} md={12} sm={24}>
+  <Col xxl={4} xl={8} md={12} span={24} style={{ margin: "1rem 0rem" }}>
     <Card>
       <Statistic
         title={title}

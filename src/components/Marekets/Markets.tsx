@@ -17,12 +17,10 @@ const Markets = ({ query }: Props) => {
     return <Spin size="large" />;
   }
 
-  console.log(data);
-
   return (
     <Row gutter={[16, 16]}>
       {marketData.map((market: any) => (
-        <Col key={market.uuid} xl={6} md={12} sm={24}>
+        <Col key={market.uuid} xl={6} md={12} span={24}>
           <Card>
             <Meta
               avatar={<Avatar src={market.iconUrl} />}

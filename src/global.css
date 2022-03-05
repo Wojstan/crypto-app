@@ -18,6 +18,40 @@
   align-items: center;
 }
 
+.ant-layout-sider {
+  background-color: white !important;
+  border-right: 1px solid #f0f0f0;
+}
+
+.site-layout {
+  margin-left: 18rem;
+}
+
 header {
   padding: 3rem 2rem;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.blue {
+  color: #1890ff;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1200px) {
+  .ant-layout-sider {
+    display: none;
+  }
+  .site-layout {
+    margin-left: 0;
+  }
+  .mobile-nav {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen {
 }

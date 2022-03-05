@@ -1,13 +1,12 @@
-import { Layout, Button, Typography } from "antd";
+import { Layout, Typography } from "antd";
 import Currency from "./components/Currency/Currency";
 import Menu from "./components/Menu/Menu";
 import { Switch, Route, Link } from "react-router-dom";
 
-import { SyncOutlined } from "@ant-design/icons";
-
 import Home from "./views/Home/Home";
 import CurrencyDetail from "./views/CurrencyDetail/CurrencyDetail";
 import Exchange from "./views/Exchange/Exchange";
+import MobileNav from "./components/MobileNav/MobileNav";
 
 const { Title } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
@@ -25,12 +24,10 @@ const App = () => (
     >
       <Menu />
     </Sider>
-    <Layout className="site-layout" style={{ marginLeft: "18rem" }}>
+    <Layout className="site-layout">
       <Header>
         <Currency />
-        <Button type="primary">
-          Refresh data <SyncOutlined />
-        </Button>
+        <MobileNav />
       </Header>
       <Content>
         <Switch>
